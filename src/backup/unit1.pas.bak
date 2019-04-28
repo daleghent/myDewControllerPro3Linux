@@ -1,0 +1,261 @@
+unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Synaser, StrUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls;
+
+type
+
+  { TForm1 }
+
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    ComPortList: TComboBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure ComPortListChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Label1Click(Sender: TObject);
+
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  Relay1, Relay2, Relay3, Relay4, ExitBtn : Boolean;
+  ComPortSet, CloseApp : Boolean;
+  CPStatusStr, PortNumber, Ports, CPort : String;
+  ser : TBlockSerial;
+  CPVal,ResInt : Integer;
+
+
+implementation
+
+{$R *.lfm}
+
+{ TForm1 }
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+    Relay1 := False;
+    Button1.Caption := 'Relay 1 OFF';
+    Relay2 := False;
+    Button3.Caption := 'Relay 2 OFF';
+    Relay3 := False;
+    Button4.Caption := 'Relay 3 OFF';
+    Relay4 := False;
+    Button5.Caption := 'Relay 4 OFF';
+    ExitBtn := True;
+    ComPortSet := False;
+    Ports := GetSerialPortNames;
+    // Label1.Caption := Ports;
+    ComPortList.Items.Add(GetSerialPortNames);
+ end;
+
+procedure TForm1.Label1Click(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.ComPortListChange(Sender: TObject);
+begin
+   if ComPortSet = True then
+   Begin
+     ser.free;
+     ComPortSet := False;
+   end;
+   // create the serial device
+   ser := TBlockSerial.Create;
+   // connect to the selected com port from the drop down list
+   // if com10 onwards, need to prefix with //./
+   PortNumber := ComPortList.Items[ComPortList.ItemIndex];
+   // check to see if there is a comport available
+   if PortNumber <> '' then
+   begin
+     // chek to see if com port is com 10 onwards
+     CPort :=MidStr(PortNumber, 4, 2);
+     CPVal := StrToInt(CPort);
+     if CPVal > 9 then
+     begin
+        PortNumber := '//./' + ComPortList.Items[ComPortList.ItemIndex];
+     end;
+     ser.Connect(PortNumber);
+     // configure the serial port
+     // baud rate, number of bits, parity, stops, sw flow control, hw flow control
+     ser.Config(9600, 8, 'N', 1, False, False);
+     ComPortSet := True;
+     // return list of com ports - could be used to fill the list box?
+     // Label1.caption := GetSerialPortNames;
+
+     // ser.Device - return device name of device currently selected
+     // Ser.InstanceActive - check to see if connected (1=connected)
+     If Ser.InstanceActive then
+     Begin
+        CPStatusStr := 'Connected';
+        ComPortSet := True;
+     end
+     else
+     begin
+       CPStatusStr := 'Not connected';
+       ComPortSet := False;
+     end;
+     // Get serial device name and status - display in status bar
+     Label1.Caption := Ser.Device + ' ' + CPStatusStr;
+     end
+   else
+   begin
+     Label1.Caption := 'There is no COM Port available';
+   end;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  // only turn on/off relays if comport is connected
+  If ComPortSet = True then
+  begin
+  If Relay1 = False then
+  begin
+    Label1.Caption := 'Device: ' + ser.Device + '   Status: ' + ser.LastErrorDesc +' '+
+          Inttostr(ser.LastError);
+    Relay1 := True;
+    Button1.Caption := 'Relay 1 ON';
+    // FF, then relay number, then 1 for ON and 0 for OFF
+    ser.SendByte(255);
+    ser.SendByte(1);
+    ser.SendByte(1);
+  end else
+  begin
+    Relay1 := False;
+    Button1.Caption := 'Relay 1 OFF';
+    ser.SendByte(255);
+    ser.SendByte(1);
+    ser.SendByte(0);
+  end;
+  end else
+  begin
+    Label1.Caption := 'Com Port not set';
+  end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  If ExitBtn then
+  begin
+     ExitBtn := False;
+     Button2.Caption := 'Closing';
+  end;
+  // release the COM port
+  ser.free;
+  Sleep(2000);
+  // exit the application
+  Close;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+   // only turn on/off relays if comport is connected
+  If ComPortSet = True then
+   begin
+   If Relay2 = False then
+   begin
+     Label1.Caption := 'Device: ' + ser.Device + '   Status: ' + ser.LastErrorDesc +' '+
+           Inttostr(ser.LastError);
+     Relay2 := True;
+     Button3.Caption := 'Relay 2 ON';
+     ser.SendByte(255);
+     ser.SendByte(2);
+     ser.SendByte(1);
+   end else
+   begin
+     Relay2 := False;
+     Button3.Caption := 'Relay 2 OFF';
+     ser.SendByte(255);
+     ser.SendByte(2);
+     ser.SendByte(0);
+   end;
+   end else
+  begin
+    Label1.Caption := 'Com Port not set';
+  end;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+   // only turn on/off relays if comport is connected
+  If ComPortSet = True then
+   begin
+   If Relay3 = False then
+   begin
+     Label1.Caption := 'Device: ' + ser.Device + '   Status: ' + ser.LastErrorDesc +' '+
+           Inttostr(ser.LastError);
+     Relay3 := True;
+     Button4.Caption := 'Relay 3 ON';
+     ser.SendByte(255);
+     ser.SendByte(3);
+     ser.SendByte(1);
+   end else
+   begin
+     Relay3 := False;
+     Button4.Caption := 'Relay 3 OFF';
+     ser.SendByte(255);
+     ser.SendByte(3);
+     ser.SendByte(0);
+   end;
+   end else
+  begin
+    Label1.Caption := 'Com Port not set';
+  end;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+   // only turn on/off relays if comport is connected
+  If ComPortSet = True then
+   Begin
+   If Relay4 = False then
+   begin
+     Label1.Caption := 'Device: ' + ser.Device + '   Status: ' + ser.LastErrorDesc +' '+
+           Inttostr(ser.LastError);
+     Relay4 := True;
+     Button5.Caption := 'Relay 4 ON';
+     ser.SendByte(255);
+     ser.SendByte(4);
+     ser.SendByte(1);
+   end else
+   begin
+     Relay4 := False;
+     Button5.Caption := 'Relay 4 OFF';
+     ser.SendByte(255);
+     ser.SendByte(4);
+     ser.SendByte(0);
+   end;
+   end else
+  begin
+    Label1.Caption := 'Com Port not set';
+  end;
+end;
+
+
+
+Begin
+
+
+  end.
+

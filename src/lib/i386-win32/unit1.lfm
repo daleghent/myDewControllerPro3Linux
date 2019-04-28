@@ -1,0 +1,1144 @@
+object myDewControllerfrm: TmyDewControllerfrm
+  Left = 750
+  Height = 590
+  Top = 257
+  Width = 737
+  Caption = 'myDewControllerPro3'
+  ClientHeight = 565
+  ClientWidth = 737
+  Color = clSilver
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.8.4.0'
+  Visible = True
+  object Offsetsgrpbox: TGroupBox
+    Left = 184
+    Height = 156
+    Top = 184
+    Width = 160
+    Caption = 'Offsets'
+    ClientHeight = 131
+    ClientWidth = 156
+    TabOrder = 38
+    object Label19: TLabel
+      Left = 8
+      Height = 20
+      Top = 96
+      Width = 69
+      Caption = 'Ch3 Offset'
+      ParentColor = False
+    end
+    object Label20: TLabel
+      Left = 8
+      Height = 20
+      Top = 64
+      Width = 69
+      Caption = 'Ch2 Offset'
+      ParentColor = False
+    end
+    object Label11: TLabel
+      Left = 8
+      Height = 20
+      Top = 32
+      Width = 69
+      Caption = 'Ch1 Offset'
+      ParentColor = False
+    end
+  end
+  object PCBTempgrpbox: TGroupBox
+    Left = 536
+    Height = 126
+    Top = 9
+    Width = 188
+    Caption = 'PCB'
+    ClientHeight = 101
+    ClientWidth = 184
+    Color = clSilver
+    ParentColor = False
+    TabOrder = 56
+    object Label1: TLabel
+      Left = 8
+      Height = 20
+      Top = 0
+      Width = 67
+      Caption = 'PCB Temp'
+      ParentColor = False
+    end
+    object Label18: TLabel
+      Left = 8
+      Height = 20
+      Top = 35
+      Width = 95
+      Caption = 'PCB Threshold'
+      ParentColor = False
+    end
+  end
+  object Power: TGroupBox
+    Left = 355
+    Height = 156
+    Top = 184
+    Width = 215
+    Caption = 'Power'
+    ClientHeight = 131
+    ClientWidth = 211
+    TabOrder = 39
+    object Label21: TLabel
+      Left = 8
+      Height = 20
+      Top = 96
+      Width = 69
+      Caption = 'Ch3 Power'
+      ParentColor = False
+    end
+    object Label22: TLabel
+      Left = 8
+      Height = 20
+      Top = 64
+      Width = 69
+      Caption = 'Ch2 Power'
+      ParentColor = False
+    end
+    object Label23: TLabel
+      Left = 8
+      Height = 20
+      Top = 32
+      Width = 69
+      Caption = 'Ch1 Power'
+      ParentColor = False
+    end
+  end
+  object TrackingModegroup: TRadioGroup
+    Left = 288
+    Height = 128
+    Top = 8
+    Width = 239
+    AutoFill = True
+    Caption = 'TrackingModegroup'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 103
+    ClientWidth = 235
+    TabOrder = 28
+    object Ambientrb: TRadioButton
+      Left = 6
+      Height = 35
+      Top = 0
+      Width = 223
+      Caption = 'Ambient'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+    end
+    object MidPointrb: TRadioButton
+      Left = 6
+      Height = 35
+      Top = 35
+      Width = 223
+      Caption = 'MidPoint'
+      TabOrder = 1
+    end
+    object DewPointrb: TRadioButton
+      Left = 6
+      Height = 33
+      Top = 70
+      Width = 223
+      Caption = 'DewPoint'
+      TabOrder = 2
+    end
+  end
+  object FanSpeedgroup: TRadioGroup
+    Left = 144
+    Height = 129
+    Top = 8
+    Width = 136
+    AutoFill = True
+    Caption = 'Fan Speed'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 104
+    ClientWidth = 132
+    TabOrder = 27
+    object FanSpeed0rb: TRadioButton
+      Left = 6
+      Height = 26
+      Top = 0
+      Width = 120
+      Caption = '0'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+    end
+    object FanSpeed50rb: TRadioButton
+      Left = 6
+      Height = 26
+      Top = 26
+      Width = 120
+      Caption = '50'
+      TabOrder = 1
+    end
+    object FanSpeed75rb: TRadioButton
+      Left = 6
+      Height = 26
+      Top = 52
+      Width = 120
+      Caption = '75'
+      TabOrder = 2
+    end
+    object FanSpeed100rb: TRadioButton
+      Left = 6
+      Height = 26
+      Top = 78
+      Width = 120
+      Caption = '100'
+      TabOrder = 3
+    end
+  end
+  object GetFirmwareBtn: TButton
+    Tag = 10
+    Left = 8
+    Height = 25
+    Hint = 'Get the controller firmware'
+    Top = 376
+    Width = 163
+    Caption = 'Get Firmware Version'
+    Color = clMoneyGreen
+    OnClick = GetFirmwareBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+  end
+  object ExitBtn: TButton
+    Left = 651
+    Height = 25
+    Hint = 'Exit the application'
+    Top = 528
+    Width = 75
+    Caption = 'Exit'
+    Color = clRed
+    OnClick = ExitBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+  end
+  object GetTrackingModeBtn: TButton
+    Left = 384
+    Height = 25
+    Hint = 'Get the controller tracking mode'
+    Top = 33
+    Width = 64
+    Caption = 'Get'
+    Color = clMoneyGreen
+    OnClick = GetTrackingModeBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+  end
+  object Label2: TLabel
+    Left = 568
+    Height = 20
+    Top = 488
+    Width = 152
+    Caption = '(C) R Brown 2014-2018'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 8
+    Height = 20
+    Top = 508
+    Width = 40
+    Caption = 'Status'
+    ParentColor = False
+  end
+  object StatusMessage: TEdit
+    Left = 8
+    Height = 28
+    Top = 528
+    Width = 408
+    OnChange = StatusMessageChange
+    TabOrder = 4
+  end
+  object TypeComPort: TEdit
+    Left = 8
+    Height = 28
+    Top = 25
+    Width = 118
+    TabOrder = 5
+    Text = '/dev/ttyS0'
+  end
+  object ConnectBtn: TButton
+    Left = 8
+    Height = 30
+    Hint = 'Click to connect to the controller'
+    Top = 86
+    Width = 118
+    Caption = 'Connect'
+    Color = clMoneyGreen
+    OnClick = ConnectBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+  end
+  object Label5: TLabel
+    Left = 8
+    Height = 23
+    Top = 4
+    Width = 31
+    Caption = 'Port'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -17
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object DisconnectBtn: TButton
+    Left = 8
+    Height = 30
+    Hint = 'Click to disconnect the controller'
+    Top = 116
+    Width = 118
+    Caption = 'Disconnect'
+    Color = clSkyBlue
+    OnClick = DisconnectBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+  end
+  object GetValuesbtn: TButton
+    Left = 8
+    Height = 30
+    Hint = 'Click to get the controller values'
+    Top = 146
+    Width = 118
+    Caption = 'Get Values'
+    Color = clMoneyGreen
+    OnClick = GetValuesbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+  end
+  object Label3: TLabel
+    Left = 8
+    Height = 20
+    Top = 184
+    Width = 98
+    Caption = 'Ambient Temp'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 8
+    Height = 20
+    Top = 215
+    Width = 77
+    Caption = 'Humidity %'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 8
+    Height = 20
+    Top = 245
+    Width = 67
+    Caption = 'Dew Point'
+    ParentColor = False
+  end
+  object Label8: TLabel
+    Left = 8
+    Height = 20
+    Top = 275
+    Width = 106
+    Caption = 'Channel 1 Temp'
+    ParentColor = False
+  end
+  object Label9: TLabel
+    Left = 8
+    Height = 20
+    Top = 305
+    Width = 106
+    Caption = 'Channel 2 Temp'
+    ParentColor = False
+  end
+  object Label10: TLabel
+    Left = 8
+    Height = 20
+    Top = 334
+    Width = 106
+    Caption = 'Channel 3 Temp'
+    ParentColor = False
+  end
+  object Label17: TLabel
+    Left = 144
+    Height = 20
+    Top = 152
+    Width = 88
+    Caption = 'ATBias Offset'
+    ParentColor = False
+  end
+  object TrackModeOffsetMinusbtn: TButton
+    Left = 400
+    Height = 31
+    Hint = 'Decrease the tracking mode offset value'
+    Top = 64
+    Width = 35
+    Caption = '<'
+    Color = clCream
+    OnClick = TrackModeOffsetMinusbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 8
+  end
+  object TrackModeOffsetZerobtn: TButton
+    Left = 440
+    Height = 31
+    Hint = 'Set the tracking mode offset value to 0'
+    Top = 64
+    Width = 35
+    Caption = '0'
+    OnClick = TrackModeOffsetZerobtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 9
+  end
+  object TrackModeOffsetPlusbtn: TButton
+    Left = 480
+    Height = 31
+    Hint = 'Increase the tracking mode offset value'
+    Top = 64
+    Width = 35
+    Caption = '>'
+    Color = clCream
+    OnClick = TrackModeOffsetPlusbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 10
+  end
+  object GetFanSpeedbtn: TButton
+    Left = 200
+    Height = 25
+    Hint = 'Get the controller fan speed'
+    Top = 40
+    Width = 64
+    Caption = 'Get'
+    Color = clMoneyGreen
+    OnClick = GetFanSpeedbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 11
+  end
+  object SetFanSpeedbtn: TButton
+    Left = 200
+    Height = 25
+    Hint = 'Set the controller fan speed'
+    Top = 72
+    Width = 64
+    Caption = 'Set'
+    Color = clCream
+    OnClick = SetFanSpeedbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 12
+  end
+  object SetTrackingModebtn: TButton
+    Left = 456
+    Height = 25
+    Hint = 'Set the controller tracking mode'
+    Top = 33
+    Width = 64
+    Caption = 'Set'
+    Color = clCream
+    OnClick = SetTrackingModebtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 13
+  end
+  object AmbientTemptxtbox: TEdit
+    Left = 120
+    Height = 28
+    Top = 185
+    Width = 60
+    ReadOnly = True
+    TabOrder = 14
+    Text = '0'
+  end
+  object Humiditytxtbox: TEdit
+    Left = 120
+    Height = 28
+    Top = 215
+    Width = 60
+    ReadOnly = True
+    TabOrder = 15
+    Text = '0'
+  end
+  object DewPointtxtbox: TEdit
+    Left = 120
+    Height = 28
+    Top = 245
+    Width = 60
+    ReadOnly = True
+    TabOrder = 16
+    Text = '0'
+  end
+  object Ch1Temptxtbox: TEdit
+    Left = 120
+    Height = 28
+    Top = 275
+    Width = 60
+    ReadOnly = True
+    TabOrder = 17
+    Text = '0'
+  end
+  object Ch2Temptxtbox: TEdit
+    Left = 120
+    Height = 28
+    Top = 305
+    Width = 60
+    ReadOnly = True
+    TabOrder = 18
+    Text = '0'
+  end
+  object Ch3Temptxtbox: TEdit
+    Left = 120
+    Height = 28
+    Top = 335
+    Width = 60
+    ReadOnly = True
+    TabOrder = 19
+    Text = '0'
+  end
+  object Ch1Offsettxtbox: TEdit
+    Left = 272
+    Height = 28
+    Hint = 'Enter the offset value for ch1 temperature'
+    Top = 237
+    Width = 60
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 20
+    Text = '0'
+  end
+  object Ch2Offsettxtbox: TEdit
+    Left = 272
+    Height = 28
+    Hint = 'Enter the offset value for ch2 temperature'
+    Top = 269
+    Width = 60
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 21
+    Text = '0'
+  end
+  object Ch3Offsettxtbox: TEdit
+    Left = 272
+    Height = 28
+    Hint = 'Enter the offset value for ch3 temperature'
+    Top = 300
+    Width = 60
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 22
+    Text = '0'
+  end
+  object Ch1Pwrtxtbox: TEdit
+    Left = 448
+    Height = 28
+    Top = 237
+    Width = 60
+    ReadOnly = True
+    TabOrder = 23
+    Text = '0'
+  end
+  object Ch2Pwrtxtbox: TEdit
+    Left = 447
+    Height = 28
+    Top = 269
+    Width = 60
+    ReadOnly = True
+    TabOrder = 24
+    Text = '0'
+  end
+  object Ch3Pwrtxtbox: TEdit
+    Left = 447
+    Height = 28
+    Top = 300
+    Width = 60
+    ReadOnly = True
+    TabOrder = 25
+    Text = '0'
+  end
+  object AtBiasOffsettxtbox: TEdit
+    Left = 244
+    Height = 28
+    Hint = 'Enter the offset value for Ambient temperature sensor'
+    Top = 152
+    Width = 60
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 26
+    Text = '0'
+  end
+  object SetATBiasOffsetbtn: TButton
+    Left = 323
+    Height = 25
+    Hint = 'Set the offset value for Ambient temperature sensor'
+    Top = 152
+    Width = 64
+    Caption = 'Set'
+    Color = clCream
+    OnClick = SetATBiasOffsetbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 29
+  end
+  object GetATBiasOffsetbtn: TButton
+    Left = 395
+    Height = 25
+    Hint = 'Get the offset value for Ambient temperature sensor'
+    Top = 152
+    Width = 64
+    Caption = 'Get'
+    Color = clMoneyGreen
+    OnClick = GetATBiasOffsetbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 30
+  end
+  object PCBTemptxtbox: TEdit
+    Left = 648
+    Height = 28
+    Top = 30
+    Width = 60
+    ReadOnly = True
+    TabOrder = 31
+    Text = '0'
+  end
+  object GetPCBValuesbtn: TButton
+    Left = 547
+    Height = 25
+    Hint = 'Get the controller PCB settings'
+    Top = 96
+    Width = 64
+    Caption = 'Get'
+    Color = clMoneyGreen
+    OnClick = GetPCBValuesbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 32
+  end
+  object SetPCBValuesbtn: TButton
+    Left = 648
+    Height = 25
+    Hint = 'Set the controller PCB settings'
+    Top = 96
+    Width = 64
+    Caption = 'Set'
+    Color = clCream
+    OnClick = SetPCBValuesbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 33
+  end
+  object PCBThresholdtxtbox: TEdit
+    Left = 648
+    Height = 28
+    Hint = 'Enter the PCB temp at which the fan will turn on'
+    Top = 64
+    Width = 60
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 34
+    Text = '0'
+  end
+  object Setchoffsetsbtn: TButton
+    Left = 272
+    Height = 25
+    Hint = 'Set the controller channel offsets'
+    Top = 208
+    Width = 64
+    Caption = 'Set'
+    Color = clCream
+    OnClick = SetchoffsetsbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 35
+  end
+  object Getchoffsetsbtn: TButton
+    Left = 192
+    Height = 25
+    Hint = 'Get the controller channel offsets'
+    Top = 208
+    Width = 64
+    Caption = 'Get'
+    Color = clMoneyGreen
+    OnClick = GetchoffsetsbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 36
+  end
+  object Getchpwrbtn: TButton
+    Left = 365
+    Height = 25
+    Hint = 'Get the power levels for each controller channel'
+    Top = 210
+    Width = 64
+    Caption = 'Get'
+    Color = clMoneyGreen
+    OnClick = GetchpwrbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 37
+  end
+  object Setch1pwronbtn: TButton
+    Left = 520
+    Height = 25
+    Hint = 'Set ch1 power to 100%'
+    Top = 240
+    Width = 40
+    Caption = 'ON'
+    Color = clCream
+    OnClick = Setch1pwronbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 40
+  end
+  object Setch1pwroffbtn: TButton
+    Left = 520
+    Height = 25
+    Hint = 'Turn off power to channels'
+    Top = 208
+    Width = 40
+    Caption = 'OFF'
+    Color = clCream
+    OnClick = Setch1pwroffbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 41
+  end
+  object Setch2pwronbtn: TButton
+    Left = 520
+    Height = 25
+    Hint = 'Set ch2 power to 100%'
+    Top = 270
+    Width = 40
+    Caption = 'ON'
+    Color = clCream
+    OnClick = Setch2pwronbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 42
+  end
+  object LCDEnablechkbox: TCheckBox
+    Left = 184
+    Height = 24
+    Hint = 'Check to enable the controller LCD'
+    Top = 376
+    Width = 100
+    Caption = 'LCD Enable'
+    OnChange = LCDEnablechkboxChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 43
+  end
+  object WriteEEPROMbtn: TButton
+    Left = 8
+    Height = 25
+    Hint = 'Save the current controller settings in EEPROM'
+    Top = 408
+    Width = 163
+    Caption = 'Write EEPROM'
+    Color = clCream
+    OnClick = WriteEEPROMbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 44
+  end
+  object CelsiusFahrenheightchkbox: TCheckBox
+    Left = 184
+    Height = 24
+    Hint = 'Check to set temperature values in Celsius'
+    Top = 352
+    Width = 161
+    Caption = 'Celsius/Fahrenheight'
+    OnChange = CelsiusFahrenheightchkboxChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 45
+  end
+  object ch3modegrpbox: TRadioGroup
+    Left = 576
+    Height = 170
+    Top = 136
+    Width = 148
+    AutoFill = True
+    Caption = 'Ch3 Mode'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 145
+    ClientWidth = 144
+    TabOrder = 46
+    object ch3modeoffrb: TRadioButton
+      Left = 6
+      Height = 29
+      Top = 0
+      Width = 132
+      Caption = 'OFF'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+    end
+    object ch3modech1rb: TRadioButton
+      Left = 6
+      Height = 29
+      Top = 29
+      Width = 132
+      Caption = 'Ch1'
+      TabOrder = 1
+    end
+    object ch3modech2rb: TRadioButton
+      Left = 6
+      Height = 29
+      Top = 58
+      Width = 132
+      Caption = 'Ch2'
+      TabOrder = 2
+    end
+    object ch3modetempprobe3rb: TRadioButton
+      Left = 6
+      Height = 29
+      Top = 87
+      Width = 132
+      Caption = 'Temp-probe 3'
+      TabOrder = 3
+    end
+    object ch3modemanualrb: TRadioButton
+      Left = 6
+      Height = 29
+      Top = 116
+      Width = 132
+      Caption = 'Manual'
+      TabOrder = 4
+    end
+  end
+  object ch3modegetbtn: TButton
+    Left = 648
+    Height = 25
+    Hint = 'Get the controller ch3 mode setting'
+    Top = 168
+    Width = 64
+    Caption = 'Get'
+    Color = clMoneyGreen
+    OnClick = ch3modegetbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 47
+  end
+  object ch3modesetbtn: TButton
+    Left = 648
+    Height = 25
+    Hint = 'Set the ch3 mode'
+    Top = 197
+    Width = 64
+    Caption = 'Set'
+    Color = clCream
+    OnClick = ch3modesetbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 48
+  end
+  object DataUpdategrpbox: TRadioGroup
+    Left = 576
+    Height = 123
+    Top = 310
+    Width = 150
+    AutoFill = True
+    Caption = 'Data Update'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 98
+    ClientWidth = 146
+    TabOrder = 49
+    object update10srb: TRadioButton
+      Left = 6
+      Height = 25
+      Top = 0
+      Width = 134
+      Caption = '10s'
+      Checked = True
+      OnChange = update10srbChange
+      TabOrder = 0
+      TabStop = True
+    end
+    object update30srb: TRadioButton
+      Left = 6
+      Height = 25
+      Top = 25
+      Width = 134
+      Caption = '30s'
+      OnChange = update30srbChange
+      TabOrder = 1
+    end
+    object update1mrb: TRadioButton
+      Left = 6
+      Height = 24
+      Top = 50
+      Width = 134
+      Caption = '1m'
+      OnChange = update1mrbChange
+      TabOrder = 2
+    end
+    object update5mrb: TRadioButton
+      Left = 6
+      Height = 24
+      Top = 74
+      Width = 134
+      Caption = '5m'
+      OnChange = update5mrbChange
+      TabOrder = 3
+    end
+  end
+  object dataupdatestartbtn: TButton
+    Left = 648
+    Height = 25
+    Hint = 'Start the data update timer'
+    Top = 368
+    Width = 64
+    Caption = 'Start'
+    Color = clMoneyGreen
+    OnClick = dataupdatestartbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 50
+  end
+  object dataupdatestopbtn: TButton
+    Left = 648
+    Height = 25
+    Hint = 'Stop the data update timer'
+    Top = 400
+    Width = 64
+    Cancel = True
+    Caption = 'Stop'
+    Color = clCream
+    OnClick = dataupdatestopbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 51
+  end
+  object TrackModeOffsetValtxtbox: TEdit
+    Left = 440
+    Height = 28
+    Top = 100
+    Width = 35
+    Alignment = taCenter
+    Color = clCream
+    ReadOnly = True
+    TabOrder = 52
+    Text = '0'
+  end
+  object LCDPagTimegrpbox: TRadioGroup
+    Left = 434
+    Height = 131
+    Top = 344
+    Width = 136
+    AutoFill = True
+    Caption = 'LCD Page Time'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 106
+    ClientWidth = 132
+    TabOrder = 53
+    object lcdpagetime2srb: TRadioButton
+      Left = 6
+      Height = 21
+      Top = 0
+      Width = 120
+      Caption = '2s'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+    end
+    object lcdpagetime25srb: TRadioButton
+      Left = 6
+      Height = 21
+      Top = 21
+      Width = 120
+      Caption = '2.5s'
+      TabOrder = 1
+    end
+    object lcdpagetime3srb: TRadioButton
+      Left = 6
+      Height = 21
+      Top = 42
+      Width = 120
+      Caption = '3s'
+      TabOrder = 2
+    end
+    object lcdpagetime35srb: TRadioButton
+      Left = 6
+      Height = 21
+      Top = 63
+      Width = 120
+      Caption = '3.5s'
+      TabOrder = 3
+    end
+    object lcdpagetime4srb: TRadioButton
+      Left = 6
+      Height = 22
+      Top = 84
+      Width = 120
+      Caption = '4s'
+      TabOrder = 4
+    end
+  end
+  object lcdpagetimegetbtn: TButton
+    Left = 500
+    Height = 25
+    Hint = 'Get the controller LCD page display time'
+    Top = 368
+    Width = 64
+    Caption = 'Get'
+    Color = clMoneyGreen
+    OnClick = lcdpagetimegetbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 54
+  end
+  object lcdpagetimesetbtn: TButton
+    Left = 500
+    Height = 25
+    Hint = 'Set the controller LCD page display time'
+    Top = 400
+    Width = 64
+    Caption = 'Set'
+    Color = clCream
+    OnClick = lcdpagetimesetbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 55
+  end
+  object comspeedcombobox: TComboBox
+    Left = 8
+    Height = 28
+    Top = 56
+    Width = 118
+    ItemHeight = 20
+    Items.Strings = (
+      '9600'
+      '14400'
+      '19200'
+      '28800'
+      '38400'
+      '57600'
+      '115200'
+    )
+    TabOrder = 57
+  end
+  object dataloggingchkbox: TCheckBox
+    Left = 184
+    Height = 24
+    Hint = 'Check to enable data logging'
+    Top = 399
+    Width = 115
+    Caption = 'Data Logging'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 58
+  end
+  object Label12: TLabel
+    Left = 8
+    Height = 20
+    Top = 456
+    Width = 87
+    Caption = 'Log filename'
+    ParentColor = False
+    OnClick = Label12Click
+  end
+  object setfolderbtn: TButton
+    Left = 120
+    Height = 25
+    Hint = 'Select the folder for the log files'
+    Top = 451
+    Width = 94
+    Caption = 'Set Folder'
+    OnClick = setfolderbtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 59
+  end
+  object logfilenametxtbox: TEdit
+    Left = 8
+    Height = 28
+    Top = 480
+    Width = 408
+    TabOrder = 60
+  end
+  object errorloggingchkbox: TCheckBox
+    Left = 184
+    Height = 24
+    Hint = 'Checked to enable error logging'
+    Top = 423
+    Width = 115
+    Caption = 'Error Logging'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 61
+  end
+  object MainMenu1: TMainMenu
+    left = 432
+    top = 512
+    object AboutMenu: TMenuItem
+      Caption = '&About'
+      OnClick = AboutMenuClick
+    end
+    object Chart: TMenuItem
+      Caption = 'Chart'
+      OnClick = ChartClick
+    end
+    object ExitMenu: TMenuItem
+      Caption = '&Exit'
+      OnClick = ExitMenuClick
+    end
+  end
+  object DataTimer: TTimer
+    Enabled = False
+    Interval = 5000
+    OnTimer = DataTimerTimer
+    left = 480
+    top = 512
+  end
+  object ClearStatusMessagesTimer: TTimer
+    Interval = 5000
+    OnTimer = ClearStatusMessagesTimerTimer
+    left = 528
+    top = 512
+  end
+  object SelectDirectoryDialog: TSelectDirectoryDialog
+    left = 576
+    top = 512
+  end
+end
