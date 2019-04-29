@@ -14,9 +14,9 @@ You may freely use and distribute these files as long as the authors name and co
 - To test, Run, Run
 
 ## Moving the executable to another folder
-- Copy both the myDewControllerPro3-Linux executable file and the myDewControllerPro3-Linux.ini file
+- Copy both the myDewControllerPro3L executable file and the myDewControllerPro3L.ini file
 - You must be a member of the group tty. Use menu, administration, users and groups, manage groups, tty, properties and ensure that your name is checked, then click OK
-- Change the rights on the file, chmod +x myDewControllerPro3Linux or you can right mouse click the file, properties, permissions and check allow executing file as program
+- Change the rights on the file, chmod +x myDewControllerPro3L or you can right mouse click the file, properties, permissions and check allow executing file as program
 - I had to right mouse click file and chose run as adminstrator. It seems it cannot connect to tty0 device without admin priviledge
 
 
