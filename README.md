@@ -4,7 +4,7 @@
 You may freely use and distribute these files as long as the authors name and copyright message is NOT removed from the source code or application. You must acknowledge the orginal author in all distributions and provide a link back to this repository.
 
 ## Build Instructions
-- Download or clone this repositort. Download Lazarus Free Pascal v1.8.4 for YOUR system https://sourceforge.net/projects/lazarus/files/ 
+- Download or clone this repository. Download Lazarus Free Pascal v1.8.4 for YOUR system https://sourceforge.net/projects/lazarus/files/ 
 - Install Lazarus on your Unix system
 - Make a folder on your home folder/desktop of your Linux system
 - Unzip the repository zip file into that folder
